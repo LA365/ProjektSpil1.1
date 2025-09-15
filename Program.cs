@@ -11,7 +11,7 @@ namespace ProjektSpil1._1
         static void Main(string[] args)
         {
             //Velkomstbesked
-            Console.WriteLine("Velkommen");
+            Console.WriteLine("Velkommen til");
 
             //Spørger om navn og kontrollerer om det er gyldigt
             Console.WriteLine("Indtast dit navn:");
