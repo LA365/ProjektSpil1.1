@@ -15,7 +15,7 @@ namespace ProjektSpil1._1
 
             //Spørger om navn og kontrollerer om det er gyldigt
             Console.WriteLine("Indtast dit navn:");
-            string brugerNavn = Console.ReadLine();
+            string userName = Console.ReadLine();
             Menu();
             //Menu funktion
             void Menu()
@@ -25,7 +25,7 @@ namespace ProjektSpil1._1
                 while (true)
                 {
                     //Brugeren præsenteres for spil valgmulighederne
-                    Console.WriteLine($"Vælg en af følgende muligheder {brugerNavn}:");
+                    Console.WriteLine($"Vælg en af følgende muligheder {userName}:");
                     Console.WriteLine("1. Laura Spil");
                     Console.WriteLine("2. Lasse Spil");
                     /*/Læser brugerens input og gemmer som string, switch for overskuelighed og som forgrening,
@@ -50,7 +50,7 @@ namespace ProjektSpil1._1
             void LauraSpil()
             {
                 Console.WriteLine($"Velkommen til Gæt et tal.");
-                Console.WriteLine("Som title angiver skal du ,name, gætte et tal.");
+                Console.WriteLine($"Som title angiver skal du ,{userName}, gætte et tal.");
                 //int gt_randomnumber = new Random().Next(1, 100);
                 int gt_randomnumber = 7;
                 int gt_guess = Convert.ToByte(Console.ReadLine());
