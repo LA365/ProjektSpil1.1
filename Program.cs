@@ -46,7 +46,7 @@ namespace ProjektSpil1._1
                 }
             }
 
-            //Laura spil
+            //Laura spil    
             void LauraSpil()
             {
                 Console.WriteLine($"Velkommen til Gæt et tal.");
@@ -91,7 +91,7 @@ namespace ProjektSpil1._1
                     Console.WriteLine("1. Nem");
                     Console.WriteLine("2. Mellem");
                     Console.WriteLine("3. Svær");
-                    Console.WriteLine("4. Glem det");
+                    Console.WriteLine("4. Umulig.. du kan glemme det");
                     Console.WriteLine("0. Afslut spillet");
 
                     string hm_menuinput = Console.ReadLine();
@@ -155,11 +155,14 @@ namespace ProjektSpil1._1
                             if (hm_selectedword.ToLower().Contains(hm_guess))
                                 hm_wrongguesses++;
 
-                            while (hm_wrongguesses < 5)
+                            //Hvis brugeren gætter et forkert bogstav tæller hm_wrongguesses op
+                            byte hm_lifetotal = 5;   
+                            while (hm_wrongguesses < hm_lifetotal)
                             {
-                                Console.WriteLine("");
+                                Console.Clear();
+                                Console.WriteLine($"Du har {hm_lifetotal - hm_wrongguesses} liv tilbage.");
+                                Console.WriteLine($"Du har gættet på følgende bogstaver: {hm_guessedLetters}");
                             }
-                            Console.WriteLine($"{hm_selectedword}");
                         }
                     }
                 }
