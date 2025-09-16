@@ -156,7 +156,7 @@ namespace ProjektSpil1._1
                             //String til at gemme de bogstaver brugeren har gættet
                             string hm_guessedLetters = "";
                             //Hvis brugeren gætter et forkert bogstav tæller hm_wrongguesses op
-                            int hm_lifetotal = 5;   
+                            int hm_lifetotal = 5;
                             while (hm_wrongguesses < hm_lifetotal)
                             {
                                 //Viser status for spilleren
@@ -167,7 +167,7 @@ namespace ProjektSpil1._1
                                 for (int i = 0; i < hm_wordchar.Length; i++)
                                 {
                                     Console.Write(hm_wordchar[i] + " ");
-                                }   
+                                }
                                 Console.WriteLine();
                                 //Nyt gæt
                                 Console.Write("Gæt et bogstav:");
@@ -234,8 +234,8 @@ namespace ProjektSpil1._1
                                     Console.WriteLine("Tryk på en tast for at vende tilbage til menuen");
                                     Console.ReadKey();
                                     break;
-
                                 }
+                            }
                         }
                     }
                 }
