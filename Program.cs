@@ -233,7 +233,6 @@ namespace ProjektSpil1._1
                                     Console.WriteLine($"Desværre, {userName}. Du har brugt alle dine liv. Ordet var: {hm_selectedword}");
                                     Console.WriteLine("Tryk på en tast for at vende tilbage til menuen");
                                     Console.ReadKey();
-                                    break;
                                 }
                             }
                         }
