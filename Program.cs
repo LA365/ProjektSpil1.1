@@ -72,7 +72,7 @@ namespace ProjektSpil1._1
                 //Arrays med ord, opdelt i 4 sværhedsgrader.
                 string[] hm_wordeasy = new string[] { "Hest", "Bil", "Sko", "Stol", "Taske" };
                 string[] hm_wordmedium = new string[] { "Computer", "Hovedtelefoner", "Programmering", "Skærm", "Tastatur" };
-                string[] hm_wordhard = new string[] { " Algoritme", "Infrastruktur", "Kryptografi", "Virtualisering", "Mississippi" };
+                string[] hm_wordhard = new string[] { "Algoritme", "Infrastruktur", "Kryptografi", "Virtualisering", "Mississippi" };
                 string[] hm_wordinsane = new string[] { "Parallellogram", "Termodynamik", "Kvantefysik", "Elektromagnetisme", "Fotosyntese" };
 
                 //Random metode oprettes til senere brug 
@@ -106,7 +106,11 @@ namespace ProjektSpil1._1
 
                     // Returnerer til hovedmenu
                     if (hm_menuchoice == 0)
+                    {
                         Menu();
+                        return;
+                    }
+
                     //Array til at binde de forskellige sværhedsgrader sammen
                     string[] hm_wordlist;
                     {
@@ -139,29 +143,47 @@ namespace ProjektSpil1._1
                             Console.WriteLine("Spillet starter nu!");
                             //Vælger et tilfældigt ord fra det valgte array med sværhedsgrad
                             string hm_selectedword = hm_wordlist[hm_rng.Next(hm_wordlist.Length)];
-                            //Skriver tomme felter ud til det valgte ord 
+                            //Skriver tomme felter ud til det valgte ord og gemmer '_' i array
                             char[] hm_wordchar = new char[hm_selectedword.Length];
+                            //Fylder alle pladser med '_'
                             for (int i = 0; i < hm_wordchar.Length; i++)
                             {
-                                Console.Write("_ ");
+                                //Viser '_' for hvert bogstav i det valgte ord
+                                Console.Write(hm_wordchar[i] = '_');
                             }
                             //Vareiabel til vise antallet af forkerte gæt
                             int hm_wrongguesses = 0;
                             //String til at gemme de bogstaver brugeren har gættet
                             string hm_guessedLetters = "";
-                            //Spørger brugeren om et bogstav og gemmer det som char 
-                            char hm_guess = Console.ReadLine().ToLower()[0];
-                            //Tjekker om det gættede bogstav er i det valgte ord
-                            if (hm_selectedword.ToLower().Contains(hm_guess))
-                                hm_wrongguesses++;
-
                             //Hvis brugeren gætter et forkert bogstav tæller hm_wrongguesses op
-                            byte hm_lifetotal = 5;   
+                            int hm_lifetotal = 5;   
                             while (hm_wrongguesses < hm_lifetotal)
                             {
+                                //Viser status for spilleren
                                 Console.Clear();
                                 Console.WriteLine($"Du har {hm_lifetotal - hm_wrongguesses} liv tilbage.");
                                 Console.WriteLine($"Du har gættet på følgende bogstaver: {hm_guessedLetters}");
+                                //Viser ordet med '_' og gættede bogstaver
+                                for (int i = 0; i < hm_wordchar.Length; i++)
+                                    Console.Write(hm_wordchar[i]);
+                                    Console.WriteLine();
+                                //Nyt gæt
+                                Console.WriteLine("Gæt et bogstav:");
+                                string hm_userguess = Console.ReadLine().ToLower();
+                                char hm_userguesschar = hm_userguess[0];
+                                //Kontrol af gyldigt input
+                                if (hm_userguess.Length != 1)
+                                {
+                                    Console.WriteLine("Indtast venligst kun ét bogstav.");
+                                    continue;
+                                }
+                                if (!char.IsLetter(hm_userguesschar))
+                                {
+                                    Console.WriteLine("Indtast venligst et bogstav (A-Z).");
+                                    continue;
+                                }
+
+
                             }
                         }
                     }
