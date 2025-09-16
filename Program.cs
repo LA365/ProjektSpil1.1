@@ -149,7 +149,7 @@ namespace ProjektSpil1._1
                             for (int i = 0; i < hm_wordchar.Length; i++)
                             {
                                 //Viser '_' for hvert bogstav i det valgte ord
-                                Console.Write(hm_wordchar[i] = '_');
+                                hm_wordchar[i] = '_';
                             }
                             //Vareiabel til vise antallet af forkerte gæt
                             int hm_wrongguesses = 0;
@@ -165,24 +165,65 @@ namespace ProjektSpil1._1
                                 Console.WriteLine($"Du har gættet på følgende bogstaver: {hm_guessedLetters}");
                                 //Viser ordet med '_' og gættede bogstaver
                                 for (int i = 0; i < hm_wordchar.Length; i++)
-                                    Console.Write(hm_wordchar[i]);
-                                    Console.WriteLine();
+                                {
+                                    Console.Write(hm_wordchar[i] + " ");
+                                }   
+                                Console.WriteLine();
                                 //Nyt gæt
                                 Console.WriteLine("Gæt et bogstav:");
                                 string hm_userguess = Console.ReadLine().ToLower();
-                                char hm_userguesschar = hm_userguess[0];
-                                //Kontrol af gyldigt input
+                                //Kontrol af gyldigt input (længde og type)
                                 if (hm_userguess.Length != 1)
                                 {
                                     Console.WriteLine("Indtast venligst kun ét bogstav.");
                                     continue;
                                 }
+                                char hm_userguesschar = hm_userguess[0];
+                                //Tjekker om det er et bogstav
                                 if (!char.IsLetter(hm_userguesschar))
                                 {
-                                    Console.WriteLine("Indtast venligst et bogstav (A-Z).");
+                                    Console.WriteLine("Indtast venligst et bogstav (A-Å).");
                                     continue;
                                 }
-
+                                //Tjekker om det allerede er gættet
+                                if (hm_guessedLetters.Contains(hm_userguesschar))
+                                {
+                                    Console.WriteLine("Du har allerede gættet på dette bogstav, prøv igen.");
+                                    continue;
+                                }
+                                //Tilføjer det gættede bogstav til listen over gættede bogstaver
+                                hm_guessedLetters += hm_userguesschar + " ";
+                                //Tjekker om det gættede bogstav er i det valgte ord og viser bogstavet hvis det er korrekt
+                                bool hm_correctguess = false;
+                                for (int i = 0; i < hm_selectedword.Length; i++)
+                                {
+                                    //Sammenligner det gættede bogstav med hvert bogstav i det valgte ord, i lower case
+                                    if (char.ToLower(hm_selectedword[i]) == hm_userguesschar)
+                                    {
+                                        //Indsætter det korrekte bogstav i arrayet
+                                        hm_wordchar[i] = hm_selectedword[i];
+                                        hm_correctguess = true;
+                                    }
+                                }
+                                //Hvis det gættede bogstav ikke er i ordet tæller hm_wrongguesses op
+                                if (!hm_correctguess)
+                                {
+                                    hm_wrongguesses++;
+                                }
+                                bool hm_wordcomplete = true;
+                                for (int i = 0; i < hm_wordchar.Length; i++)
+                                {
+                                    if (hm_wordchar[i] == '_')
+                                    {
+                                        hm_wordcomplete = false;
+                                        break;
+                                    }
+                                }
+                                if (hm_wordcomplete)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine($"Tillykke, {userName}! Du har gættet ordet: {hm_selectedword} med {hm_wrongguesses} forkerte gæt.");
+                                }
 
                             }
                         }
