@@ -230,7 +230,7 @@ namespace ProjektSpil1._1
                                 if (hm_wrongguesses >= hm_lifetotal)
                                 {
                                     Console.Clear();
-                                    Console.WriteLine($"Desværre, {userName}. Du har brugt alle dine liv. Ordet var: {hm_selectedword}");
+                                    Console.WriteLine($"Desværre, {userName}.\n Du har brugt alle dine liv. \n Ordet var: {hm_selectedword}");
                                     Console.WriteLine("Tryk på en tast for at vende tilbage til menuen");
                                     Console.ReadKey();
                                 }
