@@ -170,7 +170,7 @@ namespace ProjektSpil1._1
                                 }   
                                 Console.WriteLine();
                                 //Nyt gæt
-                                Console.WriteLine("Gæt et bogstav:");
+                                Console.Write("Gæt et bogstav:");
                                 string hm_userguess = Console.ReadLine().ToLower();
                                 //Kontrol af gyldigt input (længde og type)
                                 if (hm_userguess.Length != 1)
@@ -223,9 +223,19 @@ namespace ProjektSpil1._1
                                 {
                                     Console.Clear();
                                     Console.WriteLine($"Tillykke, {userName}! Du har gættet ordet: {hm_selectedword} med {hm_wrongguesses} forkerte gæt.");
+                                    Console.WriteLine("Tryk på en tast for at vende tilbage til menuen");
+                                    Console.ReadKey();
+                                    break;
                                 }
+                                if (hm_wrongguesses >= hm_lifetotal)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine($"Desværre, {userName}. Du har brugt alle dine liv. Ordet var: {hm_selectedword}");
+                                    Console.WriteLine("Tryk på en tast for at vende tilbage til menuen");
+                                    Console.ReadKey();
+                                    break;
 
-                            }
+                                }
                         }
                     }
                 }
