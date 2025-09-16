@@ -75,27 +75,96 @@ namespace ProjektSpil1._1
                 string[] hm_wordhard = new string[] { " Algoritme", "Infrastruktur", "Kryptografi", "Virtualisering", "Mississippi" };
                 string[] hm_wordinsane = new string[] { "Parallellogram", "Termodynamik", "Kvantefysik", "Elektromagnetisme", "Fotosyntese" };
 
-                //Tilfældigt tal vælges 
+                //Random metode oprettes til senere brug 
                 Random hm_rng = new Random();
-                int hm_randomnumber = hm_rng.Next(0, hm_wordhard.Length);
-                Console.WriteLine(hm_randomnumber);
-
 
                 //Velkomstbesked og tast for at starte spillet
-                Console.WriteLine("Velkommen til Hangman!");
+                Console.WriteLine($"Velkommen til Hangman, {userName}!");
                 Console.WriteLine("Tryk på en tast for at starte spillet");
                 Console.ReadKey();
                 Console.Clear();
 
-                //Valg af sværhedsgrad
-                Console.WriteLine("Vælg sværhedsgrad:");
-                Console.WriteLine("1. Nem");
-                Console.WriteLine("2. Mellem");
-                Console.WriteLine("3. Svær");
-                Console.WriteLine("4. Glem det");
-                Console.WriteLine("0. Afslut spillet");
-                Console.ReadKey();
+                //Menu med valg af sværhedsgrad
+                while (true)
+                {
+                    Console.WriteLine("Vælg sværhedsgrad:\n");
+                    Console.WriteLine("1. Nem");
+                    Console.WriteLine("2. Mellem");
+                    Console.WriteLine("3. Svær");
+                    Console.WriteLine("4. Glem det");
+                    Console.WriteLine("0. Afslut spillet");
+
+                    string hm_menuinput = Console.ReadLine();
+
+                    //Kontrol af gyldigt input samt mulighed for at afslutte spillet og vende tilbage til hovedmenuen
+                    if (!int.TryParse(hm_menuinput, out int hm_menuchoice))
+
+                    {
+                        Console.WriteLine("Ugyldigt valg, prøv igen.");
+                        continue;
+                    }
+
+                    // Returnerer til hovedmenu
+                    if (hm_menuchoice == 0)
+                        Menu();
+                    //Array til at binde de forskellige sværhedsgrader sammen
+                    string[] hm_wordlist;
+                    {
+                        switch (hm_menuchoice)
+                        {
+                            case 1:
+                                hm_wordlist = hm_wordeasy;
+                                hm_Game();
+                                break;
+                            case 2:
+                                hm_wordlist = hm_wordmedium;
+                                hm_Game();
+                                break;
+                            case 3:
+                                hm_wordlist = hm_wordhard;
+                                hm_Game();
+                                break;
+                            case 4:
+                                hm_wordlist = hm_wordinsane;
+                                hm_Game();
+                                break;
+                            default:
+                                Console.WriteLine("Ugyldigt valg, prøv igen.");
+                                continue;
+                        }
+                        //Spil funktion
+                        void hm_Game()
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Spillet starter nu!");
+                            //Vælger et tilfældigt ord fra det valgte array med sværhedsgrad
+                            string hm_selectedword = hm_wordlist[hm_rng.Next(hm_wordlist.Length)];
+                            //Skriver tomme felter ud til det valgte ord 
+                            char[] hm_wordchar = new char[hm_selectedword.Length];
+                            for (int i = 0; i < hm_wordchar.Length; i++)
+                            {
+                                Console.Write("_ ");
+                            }
+                            //Vareiabel til vise antallet af forkerte gæt
+                            int hm_wrongguesses = 0;
+                            //String til at gemme de bogstaver brugeren har gættet
+                            string hm_guessedLetters = "";
+                            //Spørger brugeren om et bogstav og gemmer det som char 
+                            char hm_guess = Console.ReadLine().ToLower()[0];
+                            //Tjekker om det gættede bogstav er i det valgte ord
+                            if (hm_selectedword.ToLower().Contains(hm_guess))
+                                hm_wrongguesses++;
+
+                            while (hm_wrongguesses < 5)
+                            {
+                                Console.WriteLine("");
+                            }
+                            Console.WriteLine($"{hm_selectedword}");
+                        }
+                    }
+                }
             }
+        
         }
     }
 }
