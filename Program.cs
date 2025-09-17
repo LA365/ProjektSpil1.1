@@ -56,6 +56,7 @@ namespace ProjektSpil1._1
                 int gt_userLife = 3;
 
                 //Funktion Gæt tal menu, så brugeren kan komme tilbage og spille igen, hvis de ønsker  
+                GTMenu();
                 void GTMenu()
                 {
                     //Starter med en lille velkomst besked til spillet og hvad spillet handler om, for brugervenlighed
