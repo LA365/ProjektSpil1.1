@@ -11,7 +11,8 @@ namespace ProjektSpil1._1
         static void Main(string[] args)
         {
             //Velkomstbesked
-            Console.WriteLine("Velkommen til");
+            Console.WriteLine("Velkommen til følgende program skrevet af Lasse og Laura");
+            Console.WriteLine("Programmer vil tage dig igennem nogle forskellige spil,og vi som udvilker håber du har det sjovt\n");
 
             //Spørger om navn og kontrollerer om det er gyldigt
             Console.WriteLine("Indtast dit navn:");
