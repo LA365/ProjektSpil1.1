@@ -68,22 +68,30 @@ namespace ProjektSpil1._1
                     Console.WriteLine("1. Nem: Gæt et tal mellem 1 - 10.");
                     Console.WriteLine("2. Mellem: Gæt er tal mellem 1 - 100.");
                     Console.WriteLine("3. Svær: Gæt et tal mellem 1 - 1000.");
+                    Console.WriteLine("0. Afslut spillet");
 
-                    string gt_diffeculty = Console.ReadLine();
+                    string gt_userInput = Console.ReadLine();
+                    int gt_diffeculty = Convert.ToInt16(gt_userInput); 
+
+                    if (gt_diffeculty == 0)
+                    {
+                        Menu();
+                        return;
+                    }
 
                     //Her laver man en forgrening med switch for overskueligheden skyld. I switchen finder man 3 funktioner.
                     //De 3 funktioner indekere sværhedsgraden, som er nem, melllem og svær
                     switch (gt_diffeculty)
                     {
-                        case "1":
+                        case 1:
                             GTEasy();
                             break;
 
-                        case "2":
+                        case 2:
                             GTMedium();
                             break;
 
-                        case "3":
+                        case 3  :
                             GTDifficult();
                             break;
 
@@ -111,8 +119,7 @@ namespace ProjektSpil1._1
                         Console.WriteLine("Gæt et tal:");
 
                         //Her konveterer man byte til readline, så brugere kan indtaste sit gæt
-                        //Man vælger at bruge Byte i stedet for int, siden computer kun skal generet et tal mellem 1 - 10
-                        gt_userGuess = Convert.ToByte(Console.ReadLine());
+                        gt_userGuess = Convert.ToInt16(Console.ReadLine());
 
                         //Her udregner man hvor langt man er fra det computere har genéret. Man anvender Math.abs så man er sikret værdien altid vil forblive positiv
                         int gt_numberFrom = Math.Abs(gt_userGuess - gt_randomNumber);
@@ -121,8 +128,10 @@ namespace ProjektSpil1._1
                         if (gt_randomNumber == gt_userGuess)
                         {
                             Console.WriteLine("Succes, du gættede rigtigt og har vundet!");
+                            Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu");
+                            Console.ReadKey();
                             GTMenu();
-                            //Skriv ud
+                            return;
                         }
 
                         else
@@ -131,6 +140,16 @@ namespace ProjektSpil1._1
 
                             //Her siger man, at når brugeren har gættet forkert mister de et liv
                             gt_userLife--;
+
+                            //Her er en if sætning, somkommer frem når man ikke har flere liv 
+                            if (gt_userLife == 0)
+                            {
+                                Console.WriteLine("Du er desværre død!");
+                                Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu");
+                                Console.ReadKey();
+                                GTMenu();
+                                return;
+                            }
 
                             //Her fortæller man brugere hvor mange liv det har tilbage
                             Console.WriteLine($"Du har {gt_userLife} liv tilbage.");
@@ -161,8 +180,8 @@ namespace ProjektSpil1._1
                     {
                         Console.WriteLine("Gæt et tal:");
 
-                        //Her konveterer man byte til readline, så brugere kan indtaste sit gæt
-                        gt_userGuess = Convert.ToByte(Console.ReadLine());
+                        //Her konveterer man int til readline, så brugere kan indtaste sit gæt
+                        gt_userGuess = Convert.ToInt16(Console.ReadLine());
 
                         //Her udregner man hvor langt man er fra det computere har genéret. Man anvender Math.abs så man er sikret værdien altid vil forblive positiv
                         int gt_numberFrom = Math.Abs(gt_userGuess - gt_randomNumber);
@@ -171,12 +190,26 @@ namespace ProjektSpil1._1
                         if (gt_randomNumber == gt_userGuess)
                         {
                             Console.WriteLine("Succes, du gættede rigtigt og har vundet!");
+                            Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu");
+                            Console.ReadKey();
+                            GTMenu();
+                            return;
                         }
 
                         else
                         {
                             //Her siger man, at når brugeren har gættet forkert mister de et liv
                             gt_userLife--;
+
+                            //Her er en if sætning, somkommer frem når man ikke har flere liv 
+                            if (gt_userLife == 0)
+                            {
+                                Console.WriteLine("Du er desværre død!");
+                                Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu");
+                                Console.ReadKey();
+                                GTMenu();
+                                return;
+                            }
 
                             //Her fortæller man brugere hvor mange liv det har tilbage
                             Console.WriteLine($"Du har {gt_userLife} liv tilbage.");
@@ -206,7 +239,7 @@ namespace ProjektSpil1._1
                         Console.WriteLine("Gæt et tal:");
 
                         //Her konveterer man byte til readline, så brugere kan indtaste sit gæt
-                        //Her bruger man int i stedet for Byte, fordi tallet computeren generer er højere end hvad Byte indeholde
+                        //Her bruger man int
                         gt_userGuess = Convert.ToInt16(Console.ReadLine());
 
                         //Her udregner man hvor langt man er fra det computere har genéret. Man anvender Math.abs så man er sikret værdien altid vil forblive positiv
@@ -216,12 +249,26 @@ namespace ProjektSpil1._1
                         if (gt_randomNumber == gt_userGuess)
                         {
                             Console.WriteLine("Succes, du gættede rigtigt og har vundet!");
+                            Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu");
+                            Console.ReadKey();
+                            GTMenu();
+                            return;
                         }
 
                         else
                         {
                             //Her siger man, at når brugeren har gættet forkert mister de et liv
                             gt_userLife--;
+
+                            //Her er en if sætning, somkommer frem når man ikke har flere liv 
+                            if (gt_userLife == 0)
+                            {
+                                Console.WriteLine("Du er desværre død!"); 
+                                Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu");
+                                Console.ReadKey();
+                                GTMenu();
+                                return;
+                            }
 
                             //Her fortæller man brugere hvor mange liv det har tilbage
                             Console.WriteLine($"Du har {gt_userLife} liv tilbage.");
