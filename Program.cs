@@ -210,6 +210,8 @@ namespace ProjektSpil1._1
                                 {
                                     hm_wrongguesses++;
                                 }
+
+                                //Tjekker om ordet er gættet
                                 bool hm_wordcomplete = true;
                                 for (int i = 0; i < hm_wordchar.Length; i++)
                                 {
