@@ -67,7 +67,7 @@ namespace ProjektSpil1._1
 
                     //Starter med en lille velkomst besked til spillet og hvad spillet handler om, for brugervenlighed
                     Console.WriteLine($"Velkommen til spillet Gæt et tal.");
-                    Console.WriteLine($"Som title angiver skal du, {userName}, i dette spil gætte et tal.\n");
+                    Console.WriteLine($"Som title angiver skal du, {userName}, i dette spil gætte et tal som Computeren generer.\n");
 
                     //Her fortæller man at brugeren har 3 muligheder, at vælge i mellem
                     Console.WriteLine("Du har mulighed for at vælge en sværhedsgrad, og har følgende muligheder:\n");
@@ -116,16 +116,16 @@ namespace ProjektSpil1._1
 
                     // Generer et tilfældigt tal:
                     int gt_randomNumber = new Random().Next(1, 10);
-
+  
                     //Her definere man variablen brugerens gæt
                     int gt_userGuess = (0);
 
-                    //Her bruger man en while løkke, så man kan blive ved med at spille, hvis man gætter forkert
+                    //Her bruger man en while løkke, så man kan blive ved med at spille, hvis man gætter forkert.
                     while (gt_userGuess != gt_randomNumber)
                     {
                         Console.WriteLine("Gæt et tal:\n");
 
-                        //Her konveterer man byte til readline, så brugere kan indtaste sit gæt
+                        //Her konveterer man int til readline, så brugere kan indtaste sit gæt
                         gt_userGuess = Convert.ToInt16(Console.ReadLine());
 
                         //Her udregner man hvor langt man er fra det computere har genéret. Man anvender Math.abs så man er sikret værdien altid vil forblive positiv
@@ -152,8 +152,19 @@ namespace ProjektSpil1._1
                              have haft en fælles if sætnigen for når liv er 2 og 1.*/
                             if (gt_userLife == 2)
                             {
-                                Console.WriteLine("Prøv igen");
-                               
+                                Console.WriteLine("\nPrøv igen");
+
+                                //Man buger disse to if sætninger til at fortælle brugeren om de er over eller under tallet de skal gætte
+                                if (gt_userGuess>gt_randomNumber)
+                                {
+                                    Console.WriteLine("Dit gæt er over, det tal computeren har generet");
+                                }
+
+                                if (gt_userGuess<gt_randomNumber)
+                                {
+                                    Console.WriteLine("Dit gæt er under, det tal computeren har generet");
+                                }
+
                                 //Her fortæller man brugere hvor mange liv det har tilbage
                                 Console.WriteLine($"Du har {gt_userLife} liv tilbage.\n");
                             }
@@ -163,6 +174,17 @@ namespace ProjektSpil1._1
                             {
                                 Console.WriteLine("Prøv igen");
                                 Console.WriteLine($"Du er {gt_numberFrom} fra det tallet.\n");
+                               
+                                //Man buger disse to if sætninger til at fortælle brugeren om de er over eller under tallet de skal gætte
+                                if (gt_userGuess > gt_randomNumber)
+                                {
+                                    Console.WriteLine("Dit gæt er over, det tal computeren har generet");
+                                }
+
+                                if (gt_userGuess < gt_randomNumber)
+                                {
+                                    Console.WriteLine("Dit gæt er under, det tal computeren har generet");
+                                }
                             }
 
                             //Her er en if sætning, somkommer frem når man ikke har flere liv 
