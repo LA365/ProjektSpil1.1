@@ -392,10 +392,10 @@ namespace ProjektSpil1._1
             void LasseSpil()
             {
                 //Arrays med ord, opdelt i 4 sværhedsgrader.
-                string[] hm_wordeasy = new string[] { "Hest", "Bil", "Sko", "Stol", "Taske" };
-                string[] hm_wordmedium = new string[] { "Computer", "Hovedtelefoner", "Programmering", "Skærm", "Tastatur" };
-                string[] hm_wordhard = new string[] { "Algoritme", "Infrastruktur", "Kryptografi", "Virtualisering", "Mississippi" };
-                string[] hm_wordinsane = new string[] { "Parallellogram", "Termodynamik", "Kvantefysik", "Elektromagnetisme", "Fotosyntese" };
+                string[] hm_wordEasy = new string[] { "Hest", "Bil", "Sko", "Stol", "Taske" };
+                string[] hm_wordMedium = new string[] { "Computer", "Hovedtelefoner", "Programmering", "Skærm", "Tastatur" };
+                string[] hm_wordHard = new string[] { "Algoritme", "Infrastruktur", "Kryptografi", "Virtualisering", "Mississippi" };
+                string[] hm_wordInsane = new string[] { "Parallellogram", "Termodynamik", "Kvantefysik", "Elektromagnetisme", "Fotosyntese" };
 
                 //Random metode oprettes til senere brug 
                 Random hm_rng = new Random();
@@ -417,10 +417,10 @@ namespace ProjektSpil1._1
                     Console.WriteLine("0. Afslut spillet");
 
                     //Menuvalg gemmmes
-                    string hm_menuinput = Console.ReadLine();
+                    string hm_menuInput = Console.ReadLine();
 
                     //Kontrol af om brugeren skrev et tal
-                    if (!int.TryParse(hm_menuinput, out int hm_menuchoice))
+                    if (!int.TryParse(hm_menuInput, out int hm_menuChoice))
 
                     {
                         Console.WriteLine("Ugyldigt valg, prøv igen.");
@@ -428,32 +428,32 @@ namespace ProjektSpil1._1
                     }
 
                     // Mulighed for at kalde Menu() og returnere til hovedmenu
-                    if (hm_menuchoice == 0)
+                    if (hm_menuChoice == 0)
                     {
                         Menu();
                         return;
                     }
 
                     //Her vælges den rigtige ordliste ud fra brugerinput og hm_Game kaldes.
-                    string[] hm_wordlist;
+                    string[] hm_wordList;
                     {
-                        switch (hm_menuchoice)
+                        switch (hm_menuChoice)
                         {
                             case 1:
-                                hm_wordlist = hm_wordeasy;
-                                hm_Game();
+                                hm_wordList = hm_wordEasy;
+                                HM_Game();
                                 break;
                             case 2:
-                                hm_wordlist = hm_wordmedium;
-                                hm_Game();
+                                hm_wordList = hm_wordMedium;
+                                HM_Game();
                                 break;
                             case 3:
-                                hm_wordlist = hm_wordhard;
-                                hm_Game();
+                                hm_wordList = hm_wordHard;
+                                HM_Game();
                                 break;
                             case 4:
-                                hm_wordlist = hm_wordinsane;
-                                hm_Game();
+                                hm_wordList = hm_wordInsane;
+                                HM_Game();
                                 break;
                             default:
                                 Console.WriteLine("Ugyldigt valg, prøv igen.");
@@ -465,121 +465,120 @@ namespace ProjektSpil1._1
                            Ord vælges og viser underscores i stedet for tegn og spilleren gætter ét bogstav ad gangen.
                            Runden stopper når ordet er gættet eller livene er brugt
                         /*/
-                        void hm_Game()
+                        void HM_Game()
                         {
                             Console.Clear();
                             Console.WriteLine("Spillet starter nu!");
 
                             //Vælger et tilfældigt ord fra det valgte array med sværhedsgrad
-                            string hm_selectedword = hm_wordlist[hm_rng.Next(hm_wordlist.Length)];
+                            string hm_selectedWord = hm_wordList[hm_rng.Next(hm_wordList.Length)];
 
                             //Skriver ordet om til '_' form i stedet for bogstaver
-                            char[] hm_wordchar = new char[hm_selectedword.Length];
-                            for (int i = 0; i < hm_wordchar.Length; i++)
+                            char[] hm_wordChar = new char[hm_selectedWord.Length];
+                            for (int i = 0; i < hm_wordChar.Length; i++)
                             {
                                 //Viser '_' for hvert bogstav i det valgte ord
-                                hm_wordchar[i] = '_';
+                                hm_wordChar[i] = '_';
                             }
 
                             //Vareiabel til vise antallet af forkerte gæt
-                            int hm_wrongguesses = 0;
+                            int hm_wrongGuesses = 0;
 
                             //String til at gemme de bogstaver brugeren har gættet
                             string hm_guessedLetters = "";
 
                             //Antal liv brugeren har per runde
-                            int hm_lifetotal = 5;
+                            int hm_lifeTotal = 5;
 
                             //Spil-løkke der kører indtil brugeren gætter ordet eller løber tør for liv
-                            while (hm_wrongguesses < hm_lifetotal)
+                            while (hm_wrongGuesses < hm_lifeTotal)
                             {
                                 Console.Clear();
-                                Console.WriteLine($"Du har {hm_lifetotal - hm_wrongguesses} liv tilbage.");
+                                Console.WriteLine($"Du har {hm_lifeTotal - hm_wrongGuesses} liv tilbage.");
                                 Console.WriteLine($"Du har gættet på følgende bogstaver: {hm_guessedLetters}");
 
                                 //Viser ordet med '_' og gættede bogstaver
-                                for (int i = 0; i < hm_wordchar.Length; i++)
+                                for (int i = 0; i < hm_wordChar.Length; i++)
                                 {
-                                    Console.Write(hm_wordchar[i] + " ");
+                                    Console.Write(hm_wordChar[i] + " ");
                                 }
                                 Console.WriteLine();
 
                                 //Spørger spilleren om et bogstav og ændrer det til lower-case så de behandles ens.
                                 Console.Write("Gæt et bogstav:");
-                                string hm_userguess = Console.ReadLine().ToLower();
+                                string hm_userGuess = Console.ReadLine().ToLower();
 
                                 //Kontrol af gyldigt input (længde må kun være ét tegn)
-                                if (hm_userguess.Length != 1)
+                                if (hm_userGuess.Length != 1)
                                 {
                                     Console.WriteLine("Indtast venligst kun ét bogstav.");
                                     continue;
                                 }
 
-                                //KIG LIGE PÅ PLACERING IGEN
-                                char hm_userguesschar = hm_userguess[0];
-
+                                //Gemmer brugerinput som char
+                                char hm_userGuessChar = hm_userGuess[0];
                                 //Tjekker om det er et bogstav (A-Å)
-                                if (!char.IsLetter(hm_userguesschar))
+                                if (!char.IsLetter(hm_userGuessChar))
                                 {
                                     Console.WriteLine("Indtast venligst et bogstav (A-Å).");
                                     continue;
                                 }
 
                                 //Tjekker om det allerede er gættet på tidligere
-                                if (hm_guessedLetters.Contains(hm_userguesschar))
+                                if (hm_guessedLetters.Contains(hm_userGuessChar))
                                 {
                                     Console.WriteLine("Du har allerede gættet på dette bogstav, prøv igen.");
                                     continue;
                                 }
 
                                 //Tilføjer det gættede bogstav til listen over gættede bogstaver
-                                hm_guessedLetters += hm_userguesschar + " ";
+                                hm_guessedLetters += hm_userGuessChar + " ";
 
                                 //Tjekker om det gættede bogstav er i det valgte ord og viser bogstavet hvis det er korrekt
-                                bool hm_correctguess = false;
-                                for (int i = 0; i < hm_selectedword.Length; i++)
+                                bool hm_correctGuess = false;
+                                for (int i = 0; i < hm_selectedWord.Length; i++)
                                 {
                                     //Sammenligner det gættede bogstav med hvert bogstav i det valgte ord, i lower case
-                                    if (char.ToLower(hm_selectedword[i]) == hm_userguesschar)
+                                    if (char.ToLower(hm_selectedWord[i]) == hm_userGuessChar)
                                     {
                                         //Viser det korrekte bogstav i stedet for underscore
-                                        hm_wordchar[i] = hm_selectedword[i];
-                                        hm_correctguess = true;
+                                        hm_wordChar[i] = hm_selectedWord[i];
+                                        hm_correctGuess = true;
                                     }
                                 }
 
                                 //Hvis det gættede bogstav ikke er i ordet tæller hm_wrongguesses op og brugeren bruger derfor ét liv
-                                if (!hm_correctguess)
+                                if (!hm_correctGuess)
                                 {
-                                    hm_wrongguesses++;
+                                    hm_wrongGuesses++;
                                 }
 
                                 //Tjekker om ordet er gættet, altså om der ikke er nogle underscores tilbage.
-                                bool hm_wordcomplete = true;
-                                for (int i = 0; i < hm_wordchar.Length; i++)
+                                bool hm_wordComplete = true;
+                                for (int i = 0; i < hm_wordChar.Length; i++)
                                 {
-                                    if (hm_wordchar[i] == '_')
+                                    if (hm_wordChar[i] == '_')
                                     {
-                                        hm_wordcomplete = false;
+                                        hm_wordComplete = false;
                                         break;
                                     }
                                 }
 
                                 //Er ordet gættet får brugeren besked herom og får mulighed for at vende tilbage til menuen
-                                if (hm_wordcomplete)
+                                if (hm_wordComplete)
                                 {
                                     Console.Clear();
-                                    Console.WriteLine($"Tillykke, {userName}! Du har gættet ordet: {hm_selectedword} med {hm_wrongguesses} forkerte gæt.");
+                                    Console.WriteLine($"Tillykke, {userName}! Du har gættet ordet: {hm_selectedWord} med {hm_wrongGuesses} forkerte gæt.");
                                     Console.WriteLine("Tryk på en tast for at vende tilbage til menuen");
                                     Console.ReadKey();
                                     break;
                                 }
 
                                 //Hvis brugeren har flere forkerte gæt end liv får brugeren besked herom og får mulighed for at vende tilbage til menuen
-                                if (hm_wrongguesses >= hm_lifetotal)
+                                if (hm_wrongGuesses >= hm_lifeTotal)
                                 {
                                     Console.Clear();
-                                    Console.WriteLine($"Desværre, {userName}.\n Du har brugt alle dine liv. \n Ordet var: {hm_selectedword}");
+                                    Console.WriteLine($"Desværre, {userName}.\n Du har brugt alle dine liv. \n Ordet var: {hm_selectedWord}");
                                     Console.WriteLine("Tryk på en tast for at vende tilbage til menuen");
                                     Console.ReadKey();
                                 }
