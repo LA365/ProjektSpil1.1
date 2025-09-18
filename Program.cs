@@ -12,7 +12,7 @@ namespace ProjektSpil1._1
         {
             //Velkomstbesked
             Console.WriteLine("Velkommen til følgende program skrevet af Lasse og Laura");
-            Console.WriteLine("Programmer vil tage dig igennem nogle forskellige spil,og vi som udvilker håber du har det sjovt\n");
+            Console.WriteLine("Programmer vil tage dig igennem nogle forskellige spil, og vi som udvilker håber du har det sjovt\n");
 
             //Spørger om navn og kontrollerer om det er gyldigt
             Console.WriteLine("Indtast dit navn:");
@@ -27,7 +27,7 @@ namespace ProjektSpil1._1
                 while (true)
                 {
                     //Brugeren præsenteres for spil valgmulighederne
-                    Console.WriteLine($"Vælg en af følgende muligheder {userName}:");
+                    Console.WriteLine($"\nVælg en af følgende muligheder {userName}:");
                     Console.WriteLine("1. Laura Spil");
                     Console.WriteLine("2. Lasse Spil");
                     /*/Læser brugerens input og gemmer som string, switch for overskuelighed og som forgrening,
@@ -67,7 +67,7 @@ namespace ProjektSpil1._1
 
                     //Starter med en lille velkomst besked til spillet og hvad spillet handler om, for brugervenlighed
                     Console.WriteLine($"Velkommen til spillet Gæt et tal.");
-                    Console.WriteLine($"Som title angiver skal du, {userName}, i dette spil gætte et tal som Computeren generer.\n");
+                    Console.WriteLine($"Som title angiver skal du, {userName}, i dette spil gætte et tal som Computeren har generer.\n");
 
                     //Her fortæller man at brugeren har 3 muligheder, at vælge i mellem
                     Console.WriteLine("Du har mulighed for at vælge en sværhedsgrad, og har følgende muligheder:\n");
@@ -134,7 +134,7 @@ namespace ProjektSpil1._1
                         //Her bruger man if/else så, hvis man gætter rigtig for man en besked og gætter man forkert får man en anden
                         if (gt_randomNumber == gt_userGuess)
                         {
-                            Console.WriteLine("Succes, du gættede rigtigt og har vundet!\n");
+                            Console.WriteLine("\nSucces, du gættede rigtigt og har vundet!");
                             Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu");
                             Console.ReadKey();
                             GTMenu();
@@ -172,7 +172,7 @@ namespace ProjektSpil1._1
                             //Denne if kommmer når brugeren har et liv igen, som en form for livline eller hjælp til brugeren
                             if (gt_userLife == 1)
                             {
-                                Console.WriteLine("Prøv igen");
+                                Console.WriteLine("\nPrøv igen");
                                 Console.WriteLine($"Du er {gt_numberFrom} fra det tallet.\n");
                                
                                 //Man buger disse to if sætninger til at fortælle brugeren om de er over eller under tallet de skal gætte
@@ -190,7 +190,7 @@ namespace ProjektSpil1._1
                             //Her er en if sætning, somkommer frem når man ikke har flere liv 
                             if (gt_userLife == 0)
                             {
-                                Console.WriteLine("Du er desværre død!");
+                                Console.WriteLine("\nDu er desværre død!");
                                 Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu.");
                                 Console.ReadKey();
 
@@ -228,8 +228,8 @@ namespace ProjektSpil1._1
                         //Her bruger man if/else så, hvis man gætter rigtig for man en besked og gætter man forkert får man en anden
                         if (gt_randomNumber == gt_userGuess)
                         {
-                            Console.WriteLine("Succes, du gættede rigtigt og har vundet!");
-                            Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu.\n");
+                            Console.WriteLine("\nSucces, du gættede rigtigt og har vundet!");
+                            Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu.");
                             Console.ReadKey();
                             GTMenu();
                             return;
@@ -266,7 +266,7 @@ namespace ProjektSpil1._1
                             //Denne if kommmer når brugeren har et liv igen, som en form for livline eller hjælp til brugeren
                             if (gt_userLife == 1)
                             {
-                                Console.WriteLine("Prøv igen");
+                                Console.WriteLine("\nPrøv igen");
                                 Console.WriteLine($"Du er {gt_numberFrom} fra det tallet.\n");
 
                                 //Man buger disse to if sætninger til at fortælle brugeren om de er over eller under tallet de skal gætte
@@ -284,7 +284,7 @@ namespace ProjektSpil1._1
                             //Her er en if sætning, somkommer frem når man ikke har flere liv 
                             if (gt_userLife == 0)
                             {
-                                Console.WriteLine("Du er desværre død!");
+                                Console.WriteLine("\nDu er desværre død!");
                                 Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu.");
                                 Console.ReadKey();
 
@@ -320,8 +320,8 @@ namespace ProjektSpil1._1
                         //Her bruger man if/else så, hvis man gætter rigtig for man en besked og gætter man forkert får man en anden
                         if (gt_randomNumber == gt_userGuess)
                         {
-                            Console.WriteLine("Succes, du gættede rigtigt og har vundet!");
-                            Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu\n");
+                            Console.WriteLine("\nSucces, du gættede rigtigt og har vundet!");
+                            Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu.");
                             Console.ReadKey();
                             GTMenu();
                             return;
@@ -358,7 +358,7 @@ namespace ProjektSpil1._1
                             //Denne if kommmer når brugeren har et liv igen, som en form for livline eller hjælp til brugeren
                             if (gt_userLife == 1)
                             {
-                                Console.WriteLine("Prøv igen");
+                                Console.WriteLine("\nPrøv igen");
                                 Console.WriteLine($"Du er {gt_numberFrom} fra det tallet.\n");
 
                                 //Man buger disse to if sætninger til at fortælle brugeren om de er over eller under tallet de skal gætte
@@ -376,7 +376,7 @@ namespace ProjektSpil1._1
                             //Her er en if sætning, somkommer frem når man ikke har flere liv 
                             if (gt_userLife == 0)
                             {
-                                Console.WriteLine("Du er desværre død!");
+                                Console.WriteLine("\nDu er desværre død!");
                                 Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu.");
                                 Console.ReadKey();
 
