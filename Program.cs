@@ -453,6 +453,7 @@ namespace ProjektSpil1._1
                                         break;
                                     }
                                 }
+                                //Er ordet gættet får brugeren besked herom og får mulighed for at vende tilbage til menuen
                                 if (hm_wordcomplete)
                                 {
                                     Console.Clear();
@@ -461,6 +462,7 @@ namespace ProjektSpil1._1
                                     Console.ReadKey();
                                     break;
                                 }
+                                //Hvis brugeren har flere forkerte gæt end liv får brugeren besked herom og får mulighed for at vende tilbage til menuen
                                 if (hm_wrongguesses >= hm_lifetotal)
                                 {
                                     Console.Clear();
