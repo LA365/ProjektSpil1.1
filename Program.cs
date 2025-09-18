@@ -406,7 +406,8 @@ namespace ProjektSpil1._1
                 Console.ReadKey();
                 Console.Clear();
 
-                //Menu med valg af sværhedsgrad, vi bliver i denne menu indtil der foretages et gyldigt valg
+                /*/ Menu med valg af sværhedsgrad, while-true benyttes for ikke at begrænse antal forsøg, 
+                så man bliver i denne menu indtil der foretages et gyldigt valg /*/
                 while (true)
                 {
                     Console.WriteLine("Vælg sværhedsgrad:\n");
@@ -419,7 +420,7 @@ namespace ProjektSpil1._1
                     //Menuvalg gemmmes
                     string hm_menuInput = Console.ReadLine();
 
-                    //Kontrol af om brugeren skrev et tal
+                    //Kontrol af om brugeren skrev et tal, TryParse for at undgå crash ved bogstaver- eller nullinput.
                     if (!int.TryParse(hm_menuInput, out int hm_menuChoice))
 
                     {
@@ -434,7 +435,8 @@ namespace ProjektSpil1._1
                         return;
                     }
 
-                    //Her vælges den rigtige ordliste ud fra brugerinput og hm_Game kaldes.
+                    /*/ Her vælges den rigtige ordliste ud fra brugerinput og hm_Game kaldes.
+                        Wwitch benyttes da det gør koden meget overskuelig og det det er nemmere at udvide /*/
                     string[] hm_wordList;
                     {
                         switch (hm_menuChoice)
@@ -460,11 +462,9 @@ namespace ProjektSpil1._1
                                 continue;
                         }
 
-                        /*/
-                           Spil funktion (én runde)
-                           Ord vælges og viser underscores i stedet for tegn og spilleren gætter ét bogstav ad gangen.
-                           Runden stopper når ordet er gættet eller livene er brugt
-                        /*/
+                        /*/ Spil funktion (én runde)
+                            Ord vælges og viser underscores i stedet for tegn og brugeren gætter ét bogstav ad gangen.
+                            Runden stopper når ordet er gættet eller livene er brugt /*/
                         void HM_Game()
                         {
                             Console.Clear();
@@ -473,7 +473,7 @@ namespace ProjektSpil1._1
                             //Vælger et tilfældigt ord fra det valgte array med sværhedsgrad
                             string hm_selectedWord = hm_wordList[hm_rng.Next(hm_wordList.Length)];
 
-                            //Skriver ordet om til '_' form i stedet for bogstaver
+                            //Skriver ordet om til '_' form i stedet for bogstaver. For-løkke bruges fordi vi skal gennemløbe arrayet med chars én gang.
                             char[] hm_wordChar = new char[hm_selectedWord.Length];
                             for (int i = 0; i < hm_wordChar.Length; i++)
                             {
@@ -490,7 +490,8 @@ namespace ProjektSpil1._1
                             //Antal liv brugeren har per runde
                             int hm_lifeTotal = 5;
 
-                            //Spil-løkke der kører indtil brugeren gætter ordet eller løber tør for liv
+                            /*/ Spil-løkke der kører indtil brugeren gætter ordet eller løber tør for liv. 
+                                While-loop brugt for at gøre det muligt nemt at ændre antallet af gæt senere./*/
                             while (hm_wrongGuesses < hm_lifeTotal)
                             {
                                 Console.Clear();
@@ -504,7 +505,7 @@ namespace ProjektSpil1._1
                                 }
                                 Console.WriteLine();
 
-                                //Spørger spilleren om et bogstav og ændrer det til lower-case så de behandles ens.
+                                //Spørger brugeren om et bogstav og ændrer det til lower-case så de behandles ens.
                                 Console.Write("Gæt et bogstav:");
                                 string hm_userGuess = Console.ReadLine().ToLower();
 
@@ -517,6 +518,7 @@ namespace ProjektSpil1._1
 
                                 //Gemmer brugerinput som char
                                 char hm_userGuessChar = hm_userGuess[0];
+
                                 //Tjekker om det er et bogstav (A-Å)
                                 if (!char.IsLetter(hm_userGuessChar))
                                 {
