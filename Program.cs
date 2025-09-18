@@ -562,6 +562,7 @@ namespace ProjektSpil1._1
                                         break;
                                     }
                                 }
+
                                 //Er ordet gættet får brugeren besked herom og får mulighed for at vende tilbage til menuen
                                 if (hm_wordcomplete)
                                 {
