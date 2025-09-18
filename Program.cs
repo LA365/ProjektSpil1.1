@@ -12,9 +12,9 @@ namespace ProjektSpil1._1
         {
             //Velkomstbesked
             Console.WriteLine("Velkommen til følgende program skrevet af Lasse og Laura");
-            Console.WriteLine("Programmer vil tage dig igennem nogle forskellige spil, og vi som udvilker håber du har det sjovt\n");
+            Console.WriteLine("Programmet vil tage dig igennem nogle forskellige spil, og vi håber du har det sjovt\n");
 
-            //Spørger om navn og kontrollerer om det er gyldigt
+            //Spørger om navn og gemmer som globalvariabel userName
             Console.WriteLine("Indtast dit navn:");
             string userName = Console.ReadLine();
            
@@ -187,7 +187,7 @@ namespace ProjektSpil1._1
                                 }
                             }
 
-                            //Her er en if sætning, somkommer frem når man ikke har flere liv 
+                            //Her er en if sætning, som kommer frem når man ikke har flere liv 
                             if (gt_userLife == 0)
                             {
                                 Console.WriteLine("\nDu er desværre død!");
@@ -281,7 +281,7 @@ namespace ProjektSpil1._1
                                 }
                             }
 
-                            //Her er en if sætning, somkommer frem når man ikke har flere liv 
+                            //Her er en if sætning, som kommer frem når man ikke har flere liv 
                             if (gt_userLife == 0)
                             {
                                 Console.WriteLine("\nDu er desværre død!");
@@ -373,7 +373,7 @@ namespace ProjektSpil1._1
                                 }
                             }
 
-                            //Her er en if sætning, somkommer frem når man ikke har flere liv 
+                            //Her er en if sætning, som kommer frem når man ikke har flere liv 
                             if (gt_userLife == 0)
                             {
                                 Console.WriteLine("\nDu er desværre død!");
@@ -413,7 +413,7 @@ namespace ProjektSpil1._1
                     Console.WriteLine("1. Nem");
                     Console.WriteLine("2. Mellem");
                     Console.WriteLine("3. Svær");
-                    Console.WriteLine("4. Umulig.. du kan glemme det");
+                    Console.WriteLine("4. Umulig");
                     Console.WriteLine("0. Afslut spillet");
 
                     //Menuvalg gemmmes
@@ -514,6 +514,8 @@ namespace ProjektSpil1._1
                                     Console.WriteLine("Indtast venligst kun ét bogstav.");
                                     continue;
                                 }
+
+                                //KIG LIGE PÅ PLACERING IGEN
                                 char hm_userguesschar = hm_userguess[0];
 
                                 //Tjekker om det er et bogstav (A-Å)
