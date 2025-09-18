@@ -171,6 +171,7 @@ namespace ProjektSpil1._1
                                 Console.WriteLine("Du er desværre død!");
                                 Console.WriteLine("Tast en vilkårlige tast og returner til Lauras spil menu.");
                                 Console.ReadKey();
+
                                 GTMenu();
                                 return;
                             }
