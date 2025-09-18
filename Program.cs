@@ -146,7 +146,7 @@ namespace ProjektSpil1._1
                             //Her siger man, at når brugeren har gættet forkert mister de et liv
                             gt_userLife--;
 
-                            /* Man benytter en if sætning, så kun noget tekst kommer frem.
+                            /* Man benytter en if sætning, så en bestemt tekst kommer frem.
                              Man har i spillet valgt at der kun skal være en livlinje ved 1 liv,
                              hvilket er hvor der er er mange if sætninger. Man kunne sagtens for overkuelighedenskyld
                              have haft en fælles if sætnigen for når liv er 2 og 1.*/
