@@ -14,11 +14,15 @@ namespace ProjektSpil1._1
             Console.WriteLine("Velkommen til følgende program skrevet af Lasse og Laura");
             Console.WriteLine("Programmet vil tage dig igennem nogle forskellige spil, og vi håber du har det sjovt\n");
 
-            //Spørger om navn og gemmer som globalvariabel userName
+            /*/Spørger om navn og gemmer som globalvariabel userName.
+               Vi har gjort overvejelser for, om hvorvidt vi skal lade brugeren indtaste
+               udelukkende bogstaver, men er kommet frem til at det skal være op til brugeren.
+            /*/
             Console.WriteLine("Indtast dit navn:");
             string userName = Console.ReadLine();
            
             Menu();
+
             //Menu funktion
             void Menu()
             {
@@ -30,6 +34,7 @@ namespace ProjektSpil1._1
                     Console.WriteLine($"\nVælg en af følgende muligheder {userName}:");
                     Console.WriteLine("1. Laura Spil");
                     Console.WriteLine("2. Lasse Spil");
+
                     /*/Læser brugerens input og gemmer som string, switch for overskuelighed og som forgrening,
                     derudover bruges break i stedet for return for automatisk at komme tilbage til menuen efter afsluttet spil/*/
                     string valgSpilInput = Console.ReadLine();
