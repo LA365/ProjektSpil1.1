@@ -117,7 +117,7 @@ namespace ProjektSpil1._1
                     // Generer et tilfældigt tal:
                     int gt_randomNumber = new Random().Next(1, 10);
   
-                    //Her definere man variablen brugerens gæt
+                    //Her deklarer man variablen brugerens gæt
                     int gt_userGuess = (0);
 
                     //Her bruger man en while løkke, så man kan blive ved med at spille, hvis man gætter forkert.
@@ -211,7 +211,7 @@ namespace ProjektSpil1._1
                     // Generer et tilfældigt tal mellem 1 og 100:
                     int gt_randomNumber = new Random().Next(1, 100);
 
-                    //Her definere man variablen brugerens gæt
+                    //Her deklarerer man variablen brugerens gæt
                     int gt_userGuess = (0);
 
                     //Her bruger man en while løkke, så man kan blive ved med at spille, hvis man gætter forkert
@@ -304,6 +304,8 @@ namespace ProjektSpil1._1
 
                     // Generer et tilfældigt tal mellem 1 og 1000:
                     int gt_randomNumber = new Random().Next(1, 1000);
+
+                    //Her deklarerer man variablen brugerens gæt
                     int gt_userGuess = (0);
 
                     //Her bruger man en while løkke, så man kan blive ved med at spille, hvis man gætter forkert
